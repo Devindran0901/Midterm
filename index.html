@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Define the document type as HTML5 and set the language as English -->
+    <meta charset="UTF-8">
+    <!-- Ensure proper rendering on mobile devices with a responsive layout -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title displayed on the browser tab -->
+    <title>Weather Forecast</title>
+    <!-- Link to Bootstrap CSS library for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Include Chart.js library for creating charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Link to custom stylesheet for additional styling -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bggradient">
+    <!-- Apply a gradient background to the entire body -->
+    <div class="container mt-5">
+        <!-- Bootstrap container with margin at the top -->
+        <h1 class="animated-title text-center">Weather Forecast</h1>
+        <!-- Center-aligned title with an animated effect -->
+        <div class="row justify-content-center mt-4">
+            <!-- Centered row for input and buttons -->
+            <div class="col-md-6">
+                <!-- Column with medium breakpoint for the input box -->
+                <div class="input-wrapper">
+                    <!-- Input field for entering the city name -->
+                    <input type="text" id="cityInput" class="form-control" placeholder="Enter city name (e.g. Changlun)" aria-label="City name">
+                </div>
+                <div class="btn-wrapper d-flex justify-content-around mt-3">
+                    <!-- Div for buttons with spacing and alignment -->
+                    <button class="btn btn-primary" id="getForecastTableBtn">Get Forecast</button>
+                    <!-- Button to fetch weather data and display it in a table -->
+                    <button class="btn btn-secondary" id="getForecastChartBtn">Get Line Chart</button>
+                    <!-- Button to display the forecast data as a line chart -->
+                </div>
+                <div id="errorMessage" class="error-text text-danger mt-2" style="display: none;"></div>
+                <!-- Div to show error messages, hidden by default -->
+            </div>
+        </div>
+
+        <!-- Table for forecast -->
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-8">
+                <!-- Table to display weather forecast data -->
+                <table class="weather-table table table-bordered table-striped text-center">
+                    <!-- Bootstrap-styled table -->
+                    <thead>
+                        <tr>
+                            <th>Date-Time</th>
+                            <!-- Column header for date and time -->
+                            <th>Temperature (°C)</th>
+                            <!-- Column header for temperature -->
+                            <th>Weather Description</th>
+                            <!-- Column header for weather description -->
+                        </tr>
+                    </thead>
+                    <tbody id="forecastTableBody"></tbody>
+                    <!-- Empty tbody where forecast data will be injected dynamically -->
+                </table>
+            </div>
+        </div>
+
+        <!-- Line Chart -->
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-8">
+                <!-- Div for displaying the line chart -->
+                <canvas id="weatherChart"></canvas>
+                <!-- Canvas element where the chart will be rendered -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to external JavaScript file for functionality -->
+    <script src="/js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Notify the native layer that the WebView is ready
+            if (window.AndroidBridge) {
+                AndroidBridge.webViewReady();
+            }
+        });
+    </script>
+</body>
+</html>

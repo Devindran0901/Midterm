@@ -1,0 +1,49 @@
+/* Background gradient for the body */
+.bggradient {
+    background-image: linear-gradient(to right, #5de0e6 , #004aad);
+}
+
+/* Styling for the main title with animation */
+.animated-title {
+    text-align: center;
+    font-size: 3.5rem;
+    color: black;
+    -webkit-animation: colorchange 1000ms infinite alternate;
+}
+
+/* Keyframes for color-changing effect */
+@-webkit-keyframes colorchange {
+    0% { color: black; }
+    25% { color: black; }
+    50% { color: red; }
+    100% { color: red; }
+}
+
+/* Styling for error messages */
+.error-text {
+    color: red;
+    font-size: 1rem;
+}
+
+/* Styling for the input wrapper */
+.input-wrapper {
+    margin-bottom: 20px;
+}
+
+/* Styling for the buttons wrapper */
+.btn-wrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Table styling for weather data */
+.weather-table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Ensure the chart canvas takes up full width */
+#weatherChart {
+    width: 100%;
+    height: 400px;
+}
